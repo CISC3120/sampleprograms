@@ -1,4 +1,4 @@
-package CISC3120.GoodDogBadGog;
+package CISC3120.GoodDogBadDog;
 
 public class GoodDogTestDrive {
 	public static void main(String[] args) {
