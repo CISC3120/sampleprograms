@@ -3,6 +3,7 @@ package CISC3120.GoodDogBadGog;
 public class GoodDogTestDrive {
 	public static void main(String[] args) {
 		GoodDog one = new GoodDog();
+		one.size = 5;
 		one.setSize(70);
 		GoodDog two = new GoodDog();
 		two.setSize(8);
@@ -14,7 +15,7 @@ public class GoodDogTestDrive {
 }
 
 class GoodDog {
-	private int size;
+	int size;
 
 	public int getSize() {
 		return size;
