@@ -22,21 +22,26 @@ public class TargetGame {
 		gameDisplay = new GameDisplay(gameBoard);
 		rng = new Random();
 		in = new Scanner(System.in);
+		in.useDelimiter("(\\p{javaWhitespace}|,)+");
 	}
 	
 	public void play() {
+		boolean won = false;
 		setTarget();
 		gameBoard.plotBorder();
 		gameBoard.writeText(0, GAME_TARGET_AREA_HEIGHT-1, "Enter your target position (x, y):");
-		while(true) {
+		while(!won) {
 			gameDisplay.draw();
 
 			int xGuess = in.nextInt();
 			int yGuess = in.nextInt();
 			logger.debug("Player guessed x = " + xGuess + ", y =" + yGuess + ".");
 			if (gameBoard.getCell(xGuess, yGuess) == 'X') {
-				gameBoard.writeText(0, GAME_TARGET_AREA_HEIGHT-1, "You won");
+				gameBoard.plotBorder();
+				gameBoard.writeText(0, GAME_TARGET_AREA_HEIGHT-1, "You won. Game over.");
+				won = true;
 			} else {
+				gameBoard.plotBorder();
 				gameBoard.writeText(0, GAME_TARGET_AREA_HEIGHT-1,"Try again. Enter your target position (x, y): ");
 			}
 			gameDisplay.draw();
