@@ -20,7 +20,7 @@ public class FruitArrayList {
 	public void delete(String fruitName) {
 		// TODO: 1. implement this method.
 		/* TODO: 2. you may need to consult Java API documentation for the ArrayList class. 
-		 *          Write a comment in the code, the method of the String class you
+		 *          Write a comment in the code, the method of the ArrayList class you
 		 *          look up and the URL to the documentation the method 
 		 */
 	}
