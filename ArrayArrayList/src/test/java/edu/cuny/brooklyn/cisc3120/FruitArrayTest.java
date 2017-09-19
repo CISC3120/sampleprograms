@@ -13,10 +13,18 @@ import org.junit.Test;
 
 public class FruitArrayTest
 {
-	// TODO: 1. explain why I gave up the idea of using assertArrayEquals. It seems less code if I used it. 
-	// TODO: 2. add a test class FruitArrayListTest.java, and design and implement a few tests for the 
-	//          delete method in the FruitArrayList class
-	
+	// TODO: 1. Add a test class FruitArrayListTest.java, and design and implement 
+	//          a few tests for the delete method in the FruitArrayList class. When
+	//          designing your test cases, consider test coverage, and the quality
+	//          of the both of the code under test and testing code. 
+	// TODO: 2. If your code does not pass the tests, fix your code. Explain the bugs
+	//          found in a comment in both FruitArray.java and FruitArrayList.java. 
+	//          If you do not find any bugs, you still need to write a comment in both
+	//          FruitArray.java and FruitArrayList.java, and the comment reads, "no 
+	//          bugs found" or similar. 
+	// TODO: 3. Explain why I gave up the idea of using assertArrayEquals. It seems to
+	//          be simpler if I used it. Write your explanation as a comment in this 
+	//          Java file. 
 	
     /**
      * Test the delete method thoroughly
