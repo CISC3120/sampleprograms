@@ -2,7 +2,7 @@ package edu.cuny.brooklyn.cisc3120;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-// import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertArrayEquals;
 import org.junit.Test;
 
 /**
@@ -43,7 +43,14 @@ public class FruitArrayTest
         // why not assertArrayEquals( ... )
 		for (int i = 0; i < fruitsExpected.length; i++) {
 			assertTrue(fruitArray.getFruitsAsArray()[i].equals(fruitsExpected[i]));
+			// or use this
+			assertEquals(fruitArray.getFruitsAsArray()[i], fruitsExpected[i]);
 		}
+		
+        String[] fruitsExpectedAnother = {new String("Banana"), new String("Kiwi"), new String("Mango"), new String("Orange"), null};		
+        assertEquals("The size of the FruitArray object is unexpected.", fruitArray.getSize(), fruitsExpectedAnother.length-1);
+        assertEquals(fruitArray.getCapacity(), fruitsExpectedAnother.length);
+        assertArrayEquals(fruitsExpectedAnother, fruitArray.getFruitsAsArray());
     }
 
 	@Test

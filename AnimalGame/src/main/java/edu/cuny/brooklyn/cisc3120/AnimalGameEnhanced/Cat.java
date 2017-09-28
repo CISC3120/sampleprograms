@@ -13,7 +13,7 @@ package edu.cuny.brooklyn.cisc3120.AnimalGameEnhanced;
 //
 //}
 
-public class Cat extends Feline implements CatMotion{
+public class Cat extends Feline implements CatMotion {
 
 	public Cat(String name) {
 		super(name);
@@ -24,7 +24,7 @@ public class Cat extends Feline implements CatMotion{
 		System.out.println("Meowing");
 	}
 
-	public void tap(Object object) {
-		System.out.println("Tapping the object.");
+	public void tap(Animal animal) {
+		System.out.println("Tapping " + animal.getName());
 	}
 }

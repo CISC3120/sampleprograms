@@ -20,7 +20,7 @@ package edu.cuny.brooklyn.cisc3120.AnimalGameEnhanced;
 //		
 //	}
 //
-//	public void tap(Object object) {
+//	public void tap(Animal animal) {
 //		// TODO Auto-generated method stub
 //		
 //	}
@@ -32,13 +32,23 @@ package edu.cuny.brooklyn.cisc3120.AnimalGameEnhanced;
 //	
 //}
 
-public class FlyingCat extends Cat implements BirdMotion, CatMotion {
+public class FlyingCat extends Feline implements BirdMotion, CatMotion {
 
 	public FlyingCat(String name) {
 		super(name);
 	}
+	
+	@Override
+	public void makeNoise() {
+		System.out.println("Growling");
+	}
+
+	public void tap(Animal animal) {
+		System.out.println("Tapping " + animal.getName());
+	}
+
 
 	public void fly(Direction direction, double speed, double distance) {
-		System.out.println("I got wings, I can fly, hooray ... wings flapping, legs stepping in air ...");
-	}
+		System.out.println("I got wings, I can fly, hooray ... wings flapping, legs stepping, in air ...");
+	}	
 }
