@@ -10,8 +10,19 @@ public class Rectangle extends Shape {
 		this.length = length;
 	}
 	
+	@Override
+	public boolean equals(Object other) {
+		if (other instanceof Rectangle) {
+			return super.equals(other) 
+					&& Double.compare(this.width, ((Rectangle)other).width) == 0
+					&& Double.compare(this.length, ((Rectangle)other).length) == 0;
+		} else {
+			return false;
+		}
+	}
 	
-	// TODO: create an area method that computers the area 
-	//       of the rectangle. The method in effect overrides
-	//       parent class's area method
+	
+	// TODO: implement the area() method that computers the area 
+	//       of the rectangle. The method provides an implementation
+	//       to the Shape class's abstract area() method. 
 }

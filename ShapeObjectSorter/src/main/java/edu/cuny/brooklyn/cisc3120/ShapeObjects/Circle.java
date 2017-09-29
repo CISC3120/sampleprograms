@@ -8,6 +8,16 @@ public class Circle extends Shape {
 		this.radius = radius;
 	}
 	
+	@Override
+	public boolean equals(Object other) {
+		if (other instanceof Circle) {
+			return super.equals(other) && Double.compare(this.radius, ((Circle)other).radius) == 0;
+		} else {
+			return false;
+		}
+	}
+	
+	@Override
 	public double area() {
 		return Math.PI * radius * radius;
 	}

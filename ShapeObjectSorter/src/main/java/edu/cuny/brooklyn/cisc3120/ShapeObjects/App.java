@@ -6,8 +6,16 @@ import java.util.Random;
 public class App 
 {
     public static void main(String[] args) {
-        ArrayList<Shape> shapeList = makeRandomShapes(10);
-        computeAreas(shapeList);
+        ArrayList<Shape> shapeList = makeRandomShapes(5);
+        System.out.println("List of shapes before sorted on the length of names");
+        for(Shape s: shapeList) {
+        	System.out.println(s.getName() + ": " + s.getName().length());
+        }
+        shapeList.sort(new ShapeNameComparator());
+        System.out.println("\nList of shapes after sorted on the length of names");
+        for(Shape s: shapeList) {
+        	System.out.println(s.getName() + ": " + s.getName().length());
+        }
     }
 
     public static ArrayList<Shape> makeRandomShapes(int numOfShapes) {
@@ -34,18 +42,4 @@ public class App
         return shapeList;
     }
     
-    public static void computeAreas(ArrayList<Shape> shapeList) {
-        // TODO: compute and display the areas of the shapes in the shapeList
-        /* Example output:
-          Shape Circle_0: 11390.464859501682
-        Shape Circle_1: 526.8470433043791
-        Shape Circle_2: 18145.971578410303
-        Shape Circle_3: 47.03261775558176
-        Shape Circle_4: 783.0829150987071
-        Shape Rectangle_5: 2883.463954716244
-        Shape Circle_6: 29879.569294310906
-        Shape Circle_7: 9213.521171994787
-        Shape Rectangle_8: 3296.9637709123817
-        Shape Circle_9: 10154.0796895291 */
-    }
 }
