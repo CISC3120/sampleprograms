@@ -14,9 +14,12 @@ public class App
         
         Animal feather = new Dove("Feather");
         feather.makeNoise();
-        System.out.println("My name is " + ginger.getName());
+        System.out.println("My name is " + feather.getName());
         ((Dove)feather).fly(new Direction(36., 0.), 2., 10.);
     }
+    
+    
+    
 	
 //	public static void main(String[] args) {
 //		ArrayList<BirdMotion> flyingAnimals = new ArrayList<BirdMotion>();
@@ -31,7 +34,11 @@ public class App
 //    		bird.fly(new Direction(36., 36.), 2., 10.);
 //    	}
 //    }
-	
+
+    
+    
+    
+    
 //	public static void main(String[] args) {
 //		FlyingCat tuxedo = new FlyingCat("Tuxedo");
 //		tuxedo.walk(new Direction(36., 0), 2., 10.);
@@ -43,6 +50,10 @@ public class App
 //	tuxedo.walk(new Direction(36., 0), 2., 10.);
 //	tuxedo.fly(new Direction(36., 36.), 2., 10.);
 //}
+    
+    
+    
+    
 	
 //	public static void main(String[] args) {
 //		Animal ginger = new Cat("Ginger");
@@ -51,7 +62,11 @@ public class App
 //		move(ginger);
 //		move(feather);
 //	}
-//	
+    
+    
+    
+    
+
 //	public static void move(Animal animal) {
 //		if (animal instanceof BirdMotion) {
 //			((BirdMotion) animal).fly(new Direction(36., 36.), 3., 8.);

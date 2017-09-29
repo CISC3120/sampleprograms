@@ -32,7 +32,7 @@ package edu.cuny.brooklyn.cisc3120.AnimalGameEnhanced;
 //	
 //}
 
-public class FlyingCat extends Feline implements BirdMotion, CatMotion {
+public class FlyingCat extends Feline implements BirdMotion, FelineMotion {
 
 	public FlyingCat(String name) {
 		super(name);
@@ -43,11 +43,7 @@ public class FlyingCat extends Feline implements BirdMotion, CatMotion {
 		System.out.println("Growling");
 	}
 
-	public void tap(Animal animal) {
-		System.out.println("Tapping " + animal.getName());
-	}
-
-
+	@Override
 	public void fly(Direction direction, double speed, double distance) {
 		System.out.println("I got wings, I can fly, hooray ... wings flapping, legs stepping, in air ...");
 	}	

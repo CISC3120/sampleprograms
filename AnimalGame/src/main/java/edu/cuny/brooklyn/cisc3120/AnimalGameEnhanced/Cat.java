@@ -1,5 +1,6 @@
 package edu.cuny.brooklyn.cisc3120.AnimalGameEnhanced;
 
+// Slide 13
 //public class Cat extends Feline {
 //
 //	public Cat(String name) {
@@ -13,6 +14,7 @@ package edu.cuny.brooklyn.cisc3120.AnimalGameEnhanced;
 //
 //}
 
+// Slide 18
 public class Cat extends Feline implements CatMotion {
 
 	public Cat(String name) {

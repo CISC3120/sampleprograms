@@ -6,6 +6,7 @@ public class Owl extends Animal implements BirdMotion {
 		super(name);
 	}
 
+	@Override
 	public void fly(Direction direction, double speed, double distance) {
 		System.out.print("I am flying to direction " + direction.toString() + " for " + distance + " feet at " + speed
 				+ " miles/hour. ");
