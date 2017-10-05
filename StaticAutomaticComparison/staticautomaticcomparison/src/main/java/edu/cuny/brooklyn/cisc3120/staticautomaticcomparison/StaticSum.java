@@ -17,5 +17,5 @@ public class StaticSum
     	return sum;
     }
     
-	public int sum = 0;    
+	public static int sum = 0;    
 }
