@@ -4,16 +4,17 @@ public class StaticSum
 {
     public static void main( String[] args )
     {
-    	StaticSum staticSum = new StaticSum();
-        System.out.println(staticSum.sumToNumber(5));
-        System.out.println(staticSum.sumToNumber(5));
+    	StaticSum staticSum1 = new StaticSum();
+        System.out.println(staticSum1.sumToNumber(5));
+        StaticSum staticSum2 = new StaticSum();
+        System.out.println(staticSum2.sumToNumber(5));
     }
 
     public int sumToNumber(int number) {
     	for (int i=0; i<number; i++) {
-    		StaticSum.sum += i;
+    		sum += i;
     	}
-    	return StaticSum.sum;
+    	return sum;
     }
     
 	public static int sum = 0;    
