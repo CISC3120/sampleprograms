@@ -65,13 +65,17 @@ public class JavaFXShapesApp extends Application
         });
         primaryStage.setScene(rectScene);
         primaryStage.setTitle("Rectangle");
-        primaryStage.show();     
+        primaryStage.show();    
+        System.out.println("after the primary stage is shown");
         
         Stage secondaryStage = new Stage();
         secondaryStage.setTitle("Secondary Stage");
         secondaryStage.setScene(rectScene);
         secondaryStage.initModality(Modality.APPLICATION_MODAL);
-        secondaryStage.show();
+        // try also and observe the difference
+        //     secondaryStage.show(); 
+        secondaryStage.showAndWait();
+        System.out.println("after the secondary stage is shown");
     }
     
     public static void main( String[] args )
