@@ -68,6 +68,10 @@ public class JavaFXShapesApp extends Application
         primaryStage.show();    
         System.out.println("after the primary stage is shown");
         
+        primaryStage.setScene(circScene);
+        primaryStage.setTitle("Circle");
+        primaryStage.show();        
+        
         Stage secondaryStage = new Stage();
         secondaryStage.setTitle("Secondary Stage");
         secondaryStage.setScene(rectScene);
