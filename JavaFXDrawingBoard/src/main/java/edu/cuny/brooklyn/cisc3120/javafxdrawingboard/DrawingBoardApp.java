@@ -53,12 +53,7 @@ public class DrawingBoardApp extends Application
     private final static Insets HBOX_PADDING = new Insets(PADDING_TOP, PADDING_RIGHT, PADDING_BOTTOM, PADDING_LEFT);
     
     
-    private GraphicsContext gc = null; 
-    private double x0;
-    private double y0;
-    private double x1;
-    private double y1;
-    private boolean isDrawing;
+//    private boolean isDrawing;
     private Stage brushThicknessStage;
     private double brushLineWidth;
     private Stage brushColorPickerStage;
@@ -84,31 +79,12 @@ public class DrawingBoardApp extends Application
     }
 
     private Scene buildMainScene() {
-
-        
         Button btnBrushThickness = new Button("Brush Thickness");
         btnBrushThickness.setMaxWidth(Double.MAX_VALUE);
-        btnBrushThickness.setOnAction(new EventHandler<ActionEvent>() {
 
-            @Override
-            public void handle(ActionEvent event) {
-                brushThicknessStage.showAndWait();
-                gc.setLineWidth(brushLineWidth);
-            }
-            
-        });
         
         Button btnBrushColor = new Button("Brush Color");
         btnBrushColor.setMaxWidth(Double.MAX_VALUE);        
-        btnBrushColor.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                brushColorPickerStage.showAndWait();
-                gc.setStroke(brushColor);
-            }
-            
-        });
         
         VBox vbox = new VBox();
         vbox.setAlignment(Pos.TOP_CENTER);
@@ -119,40 +95,101 @@ public class DrawingBoardApp extends Application
         
 
         Canvas canvas = new Canvas(CANVAS_WIDTH, CANVAS_HEIGHT);
-        gc = canvas.getGraphicsContext2D();
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        btnBrushThickness.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                brushThicknessStage.showAndWait();
+                gc.setLineWidth(brushLineWidth);
+            }
+            
+        });
+        btnBrushColor.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                brushColorPickerStage.showAndWait();
+                gc.setStroke(brushColor);
+            }
+            
+        });
+        
         gc.setLineWidth(brushLineWidth);
         gc.setStroke(brushColor);
-        isDrawing = false;
+
+        // Examine: different design: click-and-draw or press-and-hold-and-draw?
+        //          different events for different effect. 
+        //          1. click-and-draw
+//        isDrawing = false;
+//        
+//        canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
+//
+//            @Override
+//            public void handle(MouseEvent event) {
+//                if (isDrawing) {
+//                    gc.closePath();
+//                    isDrawing = false;                    
+//                } else {
+//                    double x0 = event.getX();
+//                    double y0 = event.getY();
+//                    gc.moveTo(x0, y0);
+//                    gc.beginPath();
+//                    isDrawing = true;
+//                }
+//            }
+//        });
+//        
+//      canvas.setOnMouseMoved(new EventHandler<MouseEvent>() {
+//
+//          @Override
+//          public void handle(MouseEvent event) {
+//              if (isDrawing) {
+//                  double x1 = event.getX();
+//                  double y1 = event.getY();
+//                  gc.lineTo(x1,  y1);
+//                  gc.stroke();
+//              }
+//          }
+//      });  
+        ////////////////////////////////////////////////////////////////
         
-        canvas.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        
+        // Examine: different design: click-and-draw or press-and-hold-and-draw?
+        //          different events for different effect. 
+        //          2. press-and-hold-and-draw        
+        canvas.setOnMousePressed(new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
-                if (isDrawing) {
-                    gc.closePath();
-                    isDrawing = false;                    
-                } else {
-                    x0 = event.getX();
-                    y0 = event.getY();
-                    gc.moveTo(x0, y0);
-                    gc.beginPath();
-                    isDrawing = true;
-                }
+                double x0 = event.getX();
+                double y0 = event.getY();
+                gc.moveTo(x0, y0);
+                gc.beginPath();
             }
+           
         });
         
-        canvas.setOnMouseMoved(new EventHandler<MouseEvent>() {
+        canvas.setOnMouseDragged(new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
-                if (isDrawing) {
-                    x1 = event.getX();
-                    y1 = event.getY();
-                    gc.lineTo(x1,  y1);
-                    gc.stroke();
-                }
+                double x1 = event.getX();
+                double y1 = event.getY();
+                gc.lineTo(x1, y1);
+                gc.stroke();             
             }
         });
+        
+        canvas.setOnMouseReleased(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+              gc.closePath();
+            }
+            
+        });
+        ////////////////////////////////////////////////////////////////////
 
         StackPane canvasHolder = new StackPane();
         canvasHolder.setStyle(CANVAS_HOLDER_STYLE);        
