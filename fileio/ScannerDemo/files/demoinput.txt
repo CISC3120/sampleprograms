@@ -1,0 +1,21 @@
+There was a young lady called Kate,
+    Whose maths was right up-to-date.
+       She said, "It is fun
+       When three 3's are one --
+    Which they are with modulo 8."
+        -- Unknown
+    
+If inside a circle a line
+    Hits the center and goes from spine to spine
+       And the line's length is "d",
+       The circumference will be
+    d times 3.14159.
+        -- Unknown
+    
+    
+'Tis a favorite project of mine
+    A new value of pi to assign.
+       I would fix it at 3
+       For it's simpler, you see,
+    Than 3 point 1 4 1 5 9.
+        -- Harvey L. Carter
