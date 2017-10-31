@@ -85,6 +85,9 @@ public class GameUI {
     private HBox buildKeyboardInputBox() {
         TextField xGuessedTextField = new TextField(Integer.toString((int)gameBoard.getWidth()/2));
         xGuessedTextField.setOnMouseClicked((MouseEvent e) -> {xGuessedTextField.selectAll();});
+        // xGuessedTextField.setOnMouseClicked(e -> xGuessedTextField.selectAll());
+        // xGuessedTextField.setOnMouseClicked((MouseEvent e) -> xGuessedTextField.selectAll());
+        // xGuessedTextField.setOnMouseClicked(e -> {xGuessedTextField.selectAll();} );
         TextField yGuessedTextField = new TextField(Integer.toString((int)gameBoard.getHeight()/2));
         yGuessedTextField.setOnMouseClicked((MouseEvent e) -> {yGuessedTextField.selectAll();});
         Button btnShoot = new Button("Shoot!");

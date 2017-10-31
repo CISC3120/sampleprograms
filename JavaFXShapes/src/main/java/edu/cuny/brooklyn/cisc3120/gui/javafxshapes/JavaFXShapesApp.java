@@ -24,6 +24,10 @@ public class JavaFXShapesApp extends Application
     private static final int CIRCLE_RADIUS = 200;
     private static final int CIRCLE_SCENE_WIDTH = 400;
     private static final int CIRCLE_SCENE_HEIGHT = 400;
+
+    boolean hasOldX = false;
+    double xOld;
+    boolean movingRight = false;  
     
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -43,17 +47,42 @@ public class JavaFXShapesApp extends Application
         circGroup.getChildren().add(circle);
         Scene circScene = new Scene(circGroup, CIRCLE_SCENE_WIDTH, CIRCLE_SCENE_HEIGHT);
         
+      
         
         rectangle.setOnMouseEntered(new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent event) {
+                if (movingRight) {
+                    System.out.println("Mouse entered from left");
+                } else {
+                    System.out.println("Mouse entered from right");
+                }
                 primaryStage.setScene(circScene);
                 primaryStage.setTitle("Circle");
                 primaryStage.show();
             }
         });
         
+        rectangle.setOnMouseMoved(
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        if (!hasOldX) {
+                            xOld = event.getX();
+                            hasOldX = true;
+                        } else {
+                            double xNew = event.getX();
+                            if (xNew > xOld) {
+                                movingRight = true;
+                            } else {
+                                movingRight = false;
+                            }
+                        }
+                    }
+                }
+        );
+
         circle.setOnMouseExited(new EventHandler<MouseEvent>() {
 
             @Override
