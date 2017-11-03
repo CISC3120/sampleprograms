@@ -14,8 +14,8 @@ public class ScannerDemo {
             System.out.println("Use default delimiter to scan files/demoinput.txt");
             demo.scanFile("files/demoinput.txt", "");
             System.out.println("-------------------------------------------------");
-            System.out.println("Use default delimiter to scan files/demoinput.txt");
-            demo.scanFile("files/demoinput.txt", "([\\p{javaWhitespace}|,|'\"]+)");
+            System.out.println("Use delimiter ([\\p{javaWhitespace},',\",\\,]+) to scan files/demoinput.txt");
+            demo.scanFile("files/demoinput.txt", "([\\p{javaWhitespace},',\",\\,]+)");
         } catch (FileNotFoundException e) {
             System.err.println("Cannot find the file files/demoinput.txt");
         }
