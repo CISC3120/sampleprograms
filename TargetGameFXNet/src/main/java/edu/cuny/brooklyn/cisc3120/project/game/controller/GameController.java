@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import edu.cuny.brooklyn.cisc3120.project.game.TargetGameApp;
 import edu.cuny.brooklyn.cisc3120.project.game.model.DecisionWrapper;
 import edu.cuny.brooklyn.cisc3120.project.game.model.TargetGame;
+import edu.cuny.brooklyn.cisc3120.project.game.net.StatusBroadcaster;
 import edu.cuny.brooklyn.cisc3120.project.game.utils.I18n;
 import edu.cuny.brooklyn.cisc3120.project.game.model.Shot;
 import edu.cuny.brooklyn.cisc3120.project.game.model.DecisionWrapper.UserDecision;
@@ -37,6 +38,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
@@ -70,9 +72,14 @@ public class GameController {
     @FXML
     private TableColumn<StatNameValue, String> tableViewStatValue;
     
+    @FXML
+    private VBox playersOnLineVbox;
+    
     private TargetGame targetGame = new TargetGame();
     
     private Stage stage;
+    
+    private StatusBroadcaster statusBroadCaster;
     
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -88,6 +95,9 @@ public class GameController {
         setWeaponDisable(true);
         initializeI18n();
         gameStatTableView.setVisible(false);
+        playersOnLineVbox.setVisible(false);
+        statusBroadCaster = new StatusBroadcaster();
+        statusBroadCaster.start();
     }
     
     @FXML
@@ -108,6 +118,7 @@ public class GameController {
     @FXML
     void newGame(ActionEvent event) {
         LOGGER.debug("started new game.");
+        lcComboBox.setDisable(true); // don't allow users to change locale when a game is in session
         addTarget(targetGame, targetCanvas);
         setWeaponDisable(false);
         gameStatTableView.setVisible(true);
@@ -116,6 +127,7 @@ public class GameController {
         tableViewStatValue.setCellValueFactory(new PropertyValueFactory<StatNameValue, String>(StatNameValue.COLUMN_VALUE_TITLE));
         gameStatTableView.getColumns().set(0,  tableViewStatName);
         gameStatTableView.getColumns().set(1,  tableViewStatValue);
+        playersOnLineVbox.setVisible(true);
     }
 
     @FXML
@@ -137,12 +149,14 @@ public class GameController {
                 event.consume();
                 break;
             case DiscardGame:
+                statusBroadCaster.close();
                 Platform.exit();
                 break;
             case SaveGame:
                 try {
                     targetGame.saveTheGame();
                     LOGGER.debug(String.format("Saved the game at %s.", targetGame.getTheGameFile().getPath()));
+                    statusBroadCaster.close();
                     Platform.exit();
                 } catch (FileNotFoundException e) {
                     LOGGER.error(String.format("Cannot found the file %s while saving the game.",
@@ -158,6 +172,7 @@ public class GameController {
                 throw new IllegalArgumentException(String.format("User decision's value (%s) is unexpected", decision));
             }
         } else {
+            statusBroadCaster.close();
             Platform.exit();
         }       
     }
@@ -213,7 +228,7 @@ public class GameController {
     }
     
     private void initializeI18n() throws IOException, URISyntaxException {
-        List<Locale> lcList = I18n.getAvailableLocale();
+        List<Locale> lcList = I18n.getSupportedLocale();
         lcComboBox.getItems().addAll(lcList);
         Callback<ListView<Locale>, ListCell<Locale>> lcCellFactory = 
                 new Callback<ListView<Locale>, ListCell<Locale>>() {

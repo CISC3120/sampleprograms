@@ -24,9 +24,21 @@ public class TargetGameApp extends Application
     
     @Override
     public void start(Stage primaryStage) throws IOException {
+        /**
+         * The application starts always with the default locale (language & country). This is not ideal
+         * because users may wish to keep their choice of locale  selection via the user interface 
+         * from previous runs. The solution is to save the users' choice in a configuration file before
+         * the app exits. When the app starts, it should check if such a configuration file exists, if 
+         * the configuration file exists, the app loads the configuration file, and uses the settings
+         * in the configuration file to initialize the app.
+         * 
+         * Perhaps, the easiest method to save a configuration file is to use Java's Properties. 
+         * See https://docs.oracle.com/javase/tutorial/essential/environment/properties.html
+         * for a tutorial. Also be aware that the message bundle files to support internationalization
+         * are also Java Properties files. 
+         */
         ResourceBundle bundle = ResourceBundle.getBundle(I18n.getBundleBaseName(), I18n.getDefaultLocale());
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(FXML_MAIN_SCENE)
-                , ResourceBundle.getBundle(I18n.getBundleBaseName(), I18n.getDefaultLocale()));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(FXML_MAIN_SCENE), bundle);
         Parent pane = loader.load();
         
         GameController controller = loader.getController();

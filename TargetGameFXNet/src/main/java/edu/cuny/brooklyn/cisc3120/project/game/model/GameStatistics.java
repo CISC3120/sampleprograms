@@ -3,6 +3,7 @@ package edu.cuny.brooklyn.cisc3120.project.game.model;
 import java.util.LinkedList;
 import java.util.List;
 
+import edu.cuny.brooklyn.cisc3120.project.game.utils.I18n;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -12,12 +13,16 @@ public class GameStatistics {
     private int numOfTargetsShot;
     private int numOfShotsFired;
     private int numOfTargetsMade;
+    private int numOfRoundsWon;
+    private int numOfRoundsPlayed;
     private double accuracy;
     
     public GameStatistics() {
         numOfTargetsShot = 0;
         numOfShotsFired = 0;
         numOfTargetsMade = 0;
+        numOfRoundsWon = 0;
+        numOfRoundsPlayed = 0;
         accuracy = 0;
     }
 
@@ -60,13 +65,23 @@ public class GameStatistics {
     public ObservableList<StatNameValue> toObservableList() {
         List<StatNameValue> listStatistics = new LinkedList<StatNameValue>();
         listStatistics.add(
-                new StatNameValue("# of Targets Shot", Integer.toString(numOfTargetsShot)));
+                new StatNameValue(I18n.getBundle().getString("numOfTargetsShot")
+                        , Integer.toString(numOfTargetsShot)));
         listStatistics.add(
-                new StatNameValue("# of Shots Fired", Integer.toString(numOfShotsFired)));
+                new StatNameValue(I18n.getBundle().getString("numOfShotsFired")
+                        , Integer.toString(numOfShotsFired)));
         listStatistics.add(
-                new StatNameValue("# of Targets Generated", Integer.toString(numOfTargetsMade)));
+                new StatNameValue(I18n.getBundle().getString("numOfTargetsMade")
+                        , Integer.toString(numOfTargetsMade)));
         listStatistics.add(
-                new StatNameValue("Accuracy", String.format("%5.2f%%", accuracy)));
+                new StatNameValue(I18n.getBundle().getString("numOfRoundsWon")
+                        , Integer.toString(numOfRoundsWon)));
+        listStatistics.add(
+                new StatNameValue(I18n.getBundle().getString("numOfRoundsPlayed")
+                        , Integer.toString(numOfRoundsPlayed)));
+        listStatistics.add(
+                new StatNameValue(I18n.getBundle().getString("accuracy")
+                        , String.format("%5.2f%%", accuracy)));
         return FXCollections.observableList(listStatistics);
     }
     
