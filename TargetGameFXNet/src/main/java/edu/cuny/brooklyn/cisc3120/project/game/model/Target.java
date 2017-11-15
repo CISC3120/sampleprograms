@@ -32,4 +32,8 @@ public class Target {
             return false;
         }
     }
+    
+    public String toString() {
+        return "Point Target at (" + x + ", " + y + ")";
+    }
 }

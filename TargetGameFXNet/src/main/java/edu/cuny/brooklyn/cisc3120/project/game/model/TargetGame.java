@@ -8,8 +8,8 @@ import java.util.Random;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class GameState {
-    private static Logger LOGGER = LoggerFactory.getLogger(GameState.class);
+public class TargetGame {
+    private static Logger LOGGER = LoggerFactory.getLogger(TargetGame.class);
     
     private final static int GAME_TARGET_AREA_WIDTH = 40;
     private final static int GAME_TARGET_AREA_HEIGHT = 40;
@@ -21,11 +21,15 @@ public class GameState {
     private Target target;
     private GameBoard gameBoard;
     private Random rng;
+    
+    private GameStatistics gameStatistics;
 
-    public GameState() {
+    public TargetGame() {
         gameStateChanged = false;
         gameBoard = new GameBoard(GAME_TARGET_AREA_HEIGHT, GAME_TARGET_AREA_WIDTH);
         rng = new Random();
+        target = null;
+        gameStatistics = new GameStatistics();
     }
     
     public boolean isGameStateChanged() {
@@ -68,5 +72,9 @@ public class GameState {
 
     private void addTargetToBoard(Target target) {
         gameBoard.setCell(target.getX(), target.getY(), TARGET_INDICATOR_ON_BOARD);
+    }
+
+    public GameStatistics getGameStatistics() {
+        return gameStatistics;
     }    
 }
