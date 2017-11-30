@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * does with a client. 
  * 
  * The response is prepared by the method decorated with 
- * RequestMapping, well, perhahps, we can call it a 
+ * RequestMapping, well, perhaps, we can call it a 
  * "request handler". 
  */
 @RestController
@@ -20,8 +20,10 @@ public class HelloController {
 
     /*
      * HTTP is a request-response protocol. A client sends a request to the server,
-     * and the server handles the request with the response. RequestMapping "maps" a
-     * request to a URL, i.e., in the request, which URN is being referenced. *
+     * and the server handles the request, and replies the client with a response. 
+     * RequestMapping establishes the correspondence between the URN in the HTTP
+     * request with the method or the class that handles the request and returns 
+     * the response.
      */
     @RequestMapping("/")
     public String index() {
