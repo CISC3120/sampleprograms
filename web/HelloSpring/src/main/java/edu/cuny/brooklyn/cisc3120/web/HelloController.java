@@ -18,93 +18,89 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-	/*
-	 * HTTP is a request-response protocol. A client sends a
-	 * request to the server, and the server handles the
-	 * request with the response. RequestMapping "maps"
-	 * a request to a URL, i.e., in the request, which
-	 * URN is being referenced. 	 * 
-	 */
-	@RequestMapping("/")
-	public String index() {
-		return "Greetings from Spring Boot!";
-	}
-	
-	@RequestMapping("/hello")
-	public String hello() {
-        return "<!DOCTYPE html> <!-- required by any XHTML -->\r\n" + 
-        		"<html lang=\"en\"> <!-- this is a comment -->\r\n" + 
-        		"<head>\r\n" + 
-        		"  <title>Hello from Spring</title><!-- required for HTML 5-->\r\n" + 
-        		"  <meta charset=\"utf-8\" /> \r\n" + 
-        		"  <style type=\"text/css\">\r\n" + 
-        		"    h1 {color: red;}\r\n" + 
-        		"  </style>\r\n" + 
-        		"</head>\r\n" + 
-        		"<body>\r\n" + 
-        		"<h1>Hello, I am Spring</h1>\r\n" + 
-        		"\r\n" + 
-        		"<p>Click to show an <a href=\"/HttpUrlConnectionApiDoc\">Api Doc</a>.</p>\r\n" + 
-        		"</body>\r\n" + 
-        		"</html>\r\n";
-    }	
-	
-	@RequestMapping("/HttpUrlConnectionApiDoc")
-	public String apiDoc() {
-        return "<!DOCTYPE html> <!-- required by any XHTML -->\r\n" + 
-        		"<html lang=\"en\"> <!-- this is a comment -->\r\n" + 
-        		"<head>\r\n" + 
-        		"  <title>Example HTML 5: HttpURLConnection</title><!-- required for HTML 5-->\r\n" + 
-        		"  <meta charset=\"utf-8\" /> \r\n" + 
-        		"  <style type=\"text/css\">\r\n" + 
-        		"    h1 {color: red;}\r\n" + 
-        		"  </style>\r\n" + 
-        		"</head>\r\n" + 
-        		"<body>\r\n" + 
-        		"<h1>Class HttpURLConnection</h1>\r\n" + 
-        		"\r\n" + 
-        		"<p>A URLConnection with support for HTTP-specific features. See the spec for details.</p>\r\n" + 
-        		"</body>\r\n" + 
-        		"</html>\r\n";		
-	}
-	
-	@RequestMapping("/apiDoc")
-	public String apiDoc(@RequestParam("name") String name) {
-		String[] pages = {
-				"<!DOCTYPE html> <!-- required by any XHTML -->\r\n" + 
-		        		"<html lang=\"en\"> <!-- this is a comment -->\r\n" + 
-		        		"<head>\r\n" + 
-		        		"  <title>Example HTML 5: HttpURLConnection</title><!-- required for HTML 5-->\r\n" + 
-		        		"  <meta charset=\"utf-8\" /> \r\n" + 
-		        		"  <style type=\"text/css\">\r\n" + 
-		        		"    h1 {color: red;}\r\n" + 
-		        		"  </style>\r\n" + 
-		        		"</head>\r\n" + 
-		        		"<body>\r\n" + 
-		        		"<h1>Class HttpURLConnection</h1>\r\n" + 
-		        		"\r\n" + 
-		        		"<p>A URLConnection with support for HTTP-specific features. See the spec for details.</p>\r\n" + 
-		        		"</body>\r\n" + 
-		        		"</html>\r\n",
-		       "<!DOCTYPE html> <!-- required by any XHTML -->\r\n" + 
-                		"<html lang=\"en\"> <!-- this is a comment -->\r\n" + 
-                		"<head>\r\n" + 
-                		"  <title>API DOC Not Available</title><!-- required for HTML 5-->\r\n" + 
-                		"  <meta charset=\"utf-8\" /> \r\n" + 
-                		"  <style type=\"text/css\">\r\n" + 
-                		"    h1 {color: red;}\r\n" + 
-                		"  </style>\r\n" + 
-                		"</head>\r\n" + 
-                		"<body>\r\n" + 
-                		"<h1>API Documentation Not Avaialble</h1>\r\n" + 
-                		"</body>\r\n" + 
-                		"</html>\r\n"  		
-		};
-		switch(name) {
-		case "HttpUrlConnection":
-			return pages[0];
-		default:
-			return pages[1];
-		}
-	}
+    /*
+     * HTTP is a request-response protocol. A client sends a request to the server,
+     * and the server handles the request with the response. RequestMapping "maps" a
+     * request to a URL, i.e., in the request, which URN is being referenced. *
+     */
+    @RequestMapping("/")
+    public String index() {
+        return "Greetings from Spring Boot!";
+    }
+
+    @RequestMapping("/hello")
+    public String hello() {
+        return "<!DOCTYPE html> <!-- required by any XHTML -->\r\n"
+                + "<html lang=\"en\"> <!-- this is a comment -->\r\n" 
+                + "<head>\r\n"
+                + "  <title>Hello from Spring</title><!-- required for HTML 5-->\r\n"
+                + "  <meta charset=\"utf-8\" /> \r\n" 
+                + "  <style type=\"text/css\">\r\n" 
+                + "    h1 {color: red;}\r\n"
+                + "  </style>\r\n" 
+                + "</head>\r\n" 
+                + "<body>\r\n" 
+                + "<h1>Hello, I am Spring</h1>\r\n" + "\r\n"
+                + "<p>Click to show an <a href=\"/HttpUrlConnectionApiDoc\">Api Doc</a>.</p>\r\n" 
+                + "</body>\r\n"
+                + "</html>\r\n";
+    }
+
+    @RequestMapping("/HttpUrlConnectionApiDoc")
+    public String apiDoc() {
+        return "<!DOCTYPE html> <!-- required by any XHTML -->\r\n"
+                + "<html lang=\"en\"> <!-- this is a comment -->\r\n" 
+                + "<head>\r\n"
+                + "  <title>Example HTML 5: HttpURLConnection</title><!-- required for HTML 5-->\r\n"
+                + "  <meta charset=\"utf-8\" /> \r\n" 
+                + "  <style type=\"text/css\">\r\n" 
+                + "    h1 {color: red;}\r\n"
+                + "  </style>\r\n" 
+                + "</head>\r\n" 
+                + "<body>\r\n" 
+                + "<h1>Class HttpURLConnection</h1>\r\n" 
+                + "\r\n"
+                + "<p>A URLConnection with support for HTTP-specific features. See the spec for details.</p>\r\n"
+                + "</body>\r\n" 
+                + "</html>\r\n";
+    }
+
+    @RequestMapping("/apiDoc")
+    public String apiDoc(@RequestParam("name") String name) {
+        String[] pages = { "<!DOCTYPE html> <!-- required by any XHTML -->\r\n"
+                + "<html lang=\"en\"> <!-- this is a comment -->\r\n" 
+                + "<head>\r\n"
+                + "  <title>Example HTML 5: HttpURLConnection</title><!-- required for HTML 5-->\r\n"
+                + "  <meta charset=\"utf-8\" /> \r\n" 
+                + "  <style type=\"text/css\">\r\n" 
+                + "    h1 {color: red;}\r\n"
+                + "  </style>\r\n" 
+                + "</head>\r\n" 
+                + "<body>\r\n" 
+                + "<h1>Class HttpURLConnection</h1>\r\n" 
+                + "\r\n"
+                + "<p>A URLConnection with support for HTTP-specific features. See the spec for details.</p>\r\n"
+                + "</body>\r\n" 
+                + "</html>\r\n"
+                ,
+                "<!DOCTYPE html> <!-- required by any XHTML -->\r\n"
+                + "<html lang=\"en\"> <!-- this is a comment -->\r\n" 
+                + "<head>\r\n"
+                + "  <title>API DOC Not Available</title><!-- required for HTML 5-->\r\n"
+                + "  <meta charset=\"utf-8\" /> \r\n" 
+                + "  <style type=\"text/css\">\r\n"
+                + "    h1 {color: red;}\r\n" + "  </style>\r\n" 
+                + "</head>\r\n" 
+                + "<body>\r\n"
+                + "<h1>API Documentation Not Avaialble</h1>\r\n" 
+                + "</body>\r\n" 
+                + "</html>\r\n" 
+                };
+        switch (name) {
+        case "HttpUrlConnection":
+            return pages[0];
+        default:
+            return pages[1];
+        }
+    }
 }
