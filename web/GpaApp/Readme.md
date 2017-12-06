@@ -10,9 +10,9 @@ This example program demonstrate the following
 
 ### Generate SSL/TLS Certificate
 HTTP over SSL/TLS is built upon public key crytography. To enable HTTP over SSL/TLS,
-must prepare a SSL/TLS certificate (or simply SSL certificate), a public key certificate.
-To this, we first generate a pair of public and private crytographic keys, or simply
-a public/private key pair. 
+we must prepare a SSL/TLS certificate (or simply, a SSL certificate), a public key certificate.
+To do this, we first generate a pair of public and private crytographic keys (or simply, 
+a public/private key pair). 
 
 The following example shows that we generate a key pair on the command line 
 using [`keytool`](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) 
@@ -56,7 +56,7 @@ the keystore password is cisc3120.
 
 Since we use Spring Boot to manage the Spring Framework configuration, we shall edit the
 Spring Boot configuration file, i.e., `application.properties` at `src/main/resources` in
-your Maven project.
+the Maven project.
 
 Based on the values we used when we created the key pair, we edit `application.properties`
 that should have the following content referring to the key pair we created,
@@ -66,6 +66,7 @@ server.ssl.key-store: keystore.p12
 server.ssl.key-store-password: cisc3120
 server.ssl.keyStoreType: PKCS12
 server.ssl.keyAlias: springframework
+```
 
 ## Use CSS and Javascript Libraries and Frameworks
 
