@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--  See https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="/webjars/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
+<title>Student GPA</title>
+</head>
+<body>
+    <div class="container col-md-6">
+		<div class="border border-primary rounded p-2">
+			<h1>Course Added</h1>
+            <h1>GPA</h1>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title alert alert-success" th:text="'Course added for student: ' + ${student.name}"/>
+                    <form action="#" th:action="@{/gpa/viewcourses/} + ${student.sid}" method="get">
+                      <div class="form-group">
+                        <input type="hidden" class="form-control" id="sid" aria-describedby="studentId" placeholder="studentId"
+                         th:value="${student.sid}" name="sid"/><!-- must match instance variable name of a Student object -->
+                      </div>
+                      <button type="submit" class="btn btn-primary">View All Courses</button>
+                    </form>
+                </div>
+            </div>
+		</div>
+	</div>
+
+
+	<!--  See https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+	<script src="/webjars/popper.js/1.12.9/dist/popper.min.js"></script>
+	<script src="/webjars/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</body>
+</html>

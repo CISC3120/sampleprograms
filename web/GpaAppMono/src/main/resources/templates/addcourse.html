@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--  See https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="/webjars/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
+<title>Student GPA</title>
+</head>
+<body>
+    <div class="container col-md-6">
+		<div class="border border-primary rounded p-2">
+			<h1>Add Course</h1>
+			<div class="card">
+				<div class="card-body">
+                    <form action="#" th:action="@{/gpa/addcourse}" method="post">
+                      <div class="form-group">
+                        <label for="inputStudentName">Student Name</label>
+                        <input type="text" class="form-control" id="inputStudentName" aria-describedby="inputName" placeholder="Enter name"
+                         th:value="${student.name}" name="name"/><!-- must match instance variable name of a Student object -->
+                        <small id="nameHelp" class="form-text text-muted">Please enter your full name.</small>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputStudentId">Student Id</label>
+                        <input type="text" class="form-control" id="inputStudentId" placeholder="Enter student ID"
+                        th:value="${student.sid}" name="sid"/><!-- must match instance variable name of a Student object -->
+                      </div>
+                      <div class="form-group">
+                        <label for="inputCouseNumber">Course Number</label>
+                        <input type="text" class="form-control" id="inputCouseNumber" placeholder="Enter course number"
+                        th:value="${course.number}" name="number"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputCouseTitle">Course Title</label>
+                        <input type="text" class="form-control" id="inputCouseTitle" placeholder="Enter course title"
+                        th:value="${course.title}" name="title"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputTerm">Course Term</label>
+                        <input type="text" class="form-control" id="inputTerm" placeholder="Enter term"
+                        th:value="${course.term}" name="term"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputCreditHours">Course Credit Hours</label>
+                        <input type="text" class="form-control" id="inputCreditHours" placeholder="Enter course credit hours"
+                        th:value="${course.creditHours}" name="creditHours"/>
+                      </div>
+                      <div class="form-group">
+                        <label for="inputGrade">Course Grade</label>
+                        <input type="text" class="form-control" id="inputCreditHours" placeholder="Enter course grade"
+                        th:value="${course.grade}" name="grade"/>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--  See https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+	<script src="/webjars/popper.js/1.12.9/dist/popper.min.js"></script>
+	<script src="/webjars/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</body>
+</html>
