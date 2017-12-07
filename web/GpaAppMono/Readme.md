@@ -1,9 +1,10 @@
-# GPA App
+# Enhanced GPA App
 This example program demonstrate the following
 * how to use Spring Controller,
 * how to use path variables, 
 * how to use a template engine,
 * how to integrate a simple model, a simple view, and a simple controller,
+* how to use a persistent storage engine,
 * and how to enable TLS (HTTP over SSL/TLS, or HTTPS. )
 
 ## Set up For Eclipse
