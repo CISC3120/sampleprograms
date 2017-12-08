@@ -42,11 +42,11 @@ can run the MongoDB server using the command below on Mac OS X (or Linux)
 or on Windows, respectively,
 
 ```
-/Application/MongoDB/Server/3.6/bin/mongod --dbpath /MongoDB/Data/db
+/Application/MongoDB/Server/3.6/bin/mongod --dbpath /Data/MongoDB/db
 ```
 
 ```
-C:\Applications\MongoDB\Server\3.6\bin\mongodb --dbpath /MongoDB/Data/db
+C:\Applications\MongoDB\Server\3.6\bin\mongod --dbpath /Data/MongoDB/db
 ```
 
 ## Configure HTTP over SSL/TLS
