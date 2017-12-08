@@ -87,7 +87,7 @@ public class GpaService {
         double accumulatedGradePoints = 0;
         int accumulatedCredits = 0;
         for (Course course: courseList) {
-            accumulatedGradePoints += course.getGradePoint();
+            accumulatedGradePoints += course.getGradePoint() * course.getCreditHours();
             accumulatedCredits += course.getCreditHours();        
         }
         double gpa = accumulatedGradePoints / accumulatedCredits;

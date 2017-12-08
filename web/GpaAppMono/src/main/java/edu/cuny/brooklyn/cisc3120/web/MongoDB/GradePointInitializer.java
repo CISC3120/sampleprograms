@@ -35,6 +35,7 @@ public class GradePointInitializer  {
                 };
         double[] gradePoints = {
                 4.00,
+                4.00,
                 3.70,
                 3.30,
                 3.00,
@@ -45,7 +46,6 @@ public class GradePointInitializer  {
                 1.30,
                 1.00,
                 0.70,
-                0.00,
                 0.00,
                 0.00,
                 0.00,
