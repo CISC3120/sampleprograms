@@ -43,7 +43,7 @@
 @REM   -ensureCleanSession: If the browser does not have user profiles,
 
 @SET PATH=.;%PATH%
-@FOR %%f IN (selenium-server-standalone*.jar) DO java -jar %%f^
-     -Dwebdriver.ie.driver=./32/IEDriverServer.exe^
-     -Dwebdriver.chrome.driver=./32/chromedriver.exe^
+@FOR %%f IN (selenium-server-standalone*.jar) DO java ^
+     -Dwebdriver.chrome.driver=./chromedriver.exe^
+     -jar %%f^
      -timeout 9999 -browserTimeout 999
