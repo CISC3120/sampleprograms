@@ -9,7 +9,13 @@ the batch file, copy the batch file `runseleniumserver.cmd` to the
 
 ```
 cd \SEServer
-C:\SEServer>runseleniumserver.cmd
+runseleniumserver.cmd
+```
+
+Similarly, on Mac OS X or Linux, you do the following, 
+```
+cd /SEServer
+runseleniumserver.sh
 ```
 
 However, before you do so, make sure you have downloaded the Selenium Sever
@@ -28,7 +34,8 @@ you should save the file to this directory.
 ## Downloading 3rd Party Browser Drivers
 
 The script assumes that the drivers for Internet Explorer and Chrome are 
-downloaded to subdirectory `vendor`, e.g.,, when you examine the content of 
+downloaded to subdirectory `vendor` under `SEServer`, e.g.,, when you examine 
+the content of 
 the vendor directory, you should observe the result similar to the below,
 
 ```
@@ -37,13 +44,24 @@ vendor
   MicrosoftWebDriver.exe
 ```
 
+On Mac OS X or Linux, you should see the similar,
+
+```
+vendor
+  chromedriver
+  geckodriver
+```
+except that we have downloaded and saved the `chromedriver` and the `geckodriver`. 
+
+
 The drivers can be downloaded from 
 [http://www.seleniumhq.org/download/](http://www.seleniumhq.org/download/).
 
 Just for convenience, you can download them from the URLs below,
 
-* [Edge Driver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/#downloads)
 * [Chrome Driver](https://sites.google.com/a/chromium.org/chromedriver/)
+* [GeckoDriver](https://github.com/mozilla/geckodriver/releases)
+* [Edge Driver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/#downloads)
 
 ### Test Selenium Standalone Server
 
