@@ -34,7 +34,7 @@ the vendor directory, you should observe the result similar to the below,
 ```
 vendor
   chromedriver.exe
-  IEDriverServer.exe
+  MicrosoftWebDriver.exe
 ```
 
 The drivers can be downloaded from 
@@ -42,6 +42,14 @@ The drivers can be downloaded from
 
 Just for convenience, you can download them from the URLs below,
 
-* [IE Driver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/#downloads)
+* [Edge Driver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/#downloads)
 * [Chrome Driver](https://sites.google.com/a/chromium.org/chromedriver/)
 
+### Test Selenium Standalone Server
+
+To test the Selenium Sever is running, you may use your browser to open the URL below,
+
+```
+http://localhost:4444/wd/hub
+```
+assuming your are running the Selenium Server at the localhost. For Chrome, you should be able to open a session. 
