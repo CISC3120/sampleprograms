@@ -67,9 +67,8 @@ Just for convenience, you can download them from the URLs below,
 
 To test the Selenium Sever is running, you may use your browser to open the URL below,
 
-```
 [http://localhost:4444/wd/hub]([http://localhost:4444/wd/hub])
-```
+
 assuming your are running the Selenium Server at the localhost. For Chrome or Firefox, you should be able to 
 open a session in your system. For Firefox, it is necessary to add the directory where Firefox's binary executable
 is to the operating system's search path. 
