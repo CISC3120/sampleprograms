@@ -44,7 +44,7 @@
 
 @SET PATH=.;%PATH%
 @FOR %%f IN (selenium-server-standalone*.jar) DO java ^
-     -Dwebdriver.edge.driver=./vendor/chromedriver.exe^
+     -Dwebdriver.edge.driver=./vendor/MicrosoftWebDriver.exe^
      -Dwebdriver.chrome.driver=./vendor/chromedriver.exe^
      -jar %%f^
      -timeout 9999 -browserTimeout 999
