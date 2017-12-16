@@ -16,8 +16,8 @@ for Eclipse.
 
 MongoDB is a NoSQL database. You can download the community edition
 of MongoDB freely at [https://www.mongodb.com/download-center#community](https://www.mongodb.com/download-center#community) and install the
-MongoDB by running the download the package. When you install MongoDB,
-it is recommended that you install the MongoDB Compass Community, a GUI
+MongoDB by running the downloaded package. When you install MongoDB,
+it is recommended that you install the **MongoDB Compass Community**, a GUI
 application to manage MongoDB connections. 
 
 ### Configure and Run MongoDB
