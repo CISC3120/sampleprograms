@@ -1,3 +1,4 @@
 Name: Hui Chen
 Github Username: huichen-cs
 Date: Jan 29, 2018
+Class: CISC 3120
